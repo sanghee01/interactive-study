@@ -3,6 +3,13 @@ body {
   display: flex;
   justify-content: center;
 }
+body.scroll {
+  overflow-y: scroll;
+}
+body.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
+}
 #bg {
   height: 1000%;
   width: 600px;

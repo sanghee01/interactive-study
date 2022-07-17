@@ -18,11 +18,11 @@
   transform: scaleX(-1);
 }
 #npc2 {
-  top: 1000px;
+  top: 1350px;
   right: 550px;
 }
 #npc3 {
-  top: 1500px;
+  top: 2100px;
   left: 600px;
   transform: scaleX(-1);
 }
