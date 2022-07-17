@@ -1,0 +1,28 @@
+#player {
+  position: fixed;
+  top: 170px;
+  width: 70px;
+  left: 700px;
+  height: 70px;
+  transition: all 1s ease;
+  z-index: 999;
+}
+.npc {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+}
+#npc1 {
+  top: 400px;
+  left: 560px;
+  transform: scaleX(-1);
+}
+#npc2 {
+  top: 1000px;
+  right: 550px;
+}
+#npc3 {
+  top: 1500px;
+  left: 600px;
+  transform: scaleX(-1);
+}
