@@ -1,62 +1,83 @@
 const player = document.querySelector("#player");
 
-const npc1 = document.querySelector("#npc1");
-const npc2 = document.querySelector("#npc2");
-const npc3 = document.querySelector("#npc3");
+const npcList = document.querySelectorAll(".npc");
 
-const talk = document.querySelector(".talk");
-const overlay = document.querySelector(".talk__overlay");
-const nextBtn = document.querySelector(".nextBtn");
-const talkNpc = document.querySelector(".talk__char");
-const talkScript = document.querySelector(".talk__script");
+// const talk1 = document.querySelector("#talk1");
+// const talk2 = document.querySelector("#talk2");
+// const talk3 = document.querySelector("#talk3");
+const talk = document.querySelectorAll(".talk");
+const overlay = document.querySelectorAll(".talk__overlay");
+const nextBtn = document.querySelectorAll(".nextBtn");
+const talkNpc = document.querySelectorAll(".talk__char");
+const talkScript = document.querySelectorAll(".talk__script");
 
 const dialog = {
   0: {
-    name: "멍하나",
+    name: "미대생",
     script: [
-      "냥돌 ㅎㅇ 나 멍하나임 너 뭐함",
-      "나 걍 걷는중",
-      "올 너가 웬 일",
-      "ㅋ",
+      "안녕? 거기서 뭐하니",
+      "여기는 뭐하는데야?",
+      "여기는 대학본부이야~",
+      "그렇구나!",
     ],
   },
   1: {
-    name: "멍둘",
+    name: "인문대생",
     script: [
-      "올~~~~ 냥돌~~~ 너가 웬 일로 길에서 마주치냐~~",
-      "멍하나랑 똑같은 말 하네",
-      "그래? 너가 걷는다는건 잘 볼 수 없는 일이긴 하지",
-      "ㅋ",
+      "못보던 고양이네?",
+      "대학 구경 왔어",
+      "여기는 학생회관이야~ 1층엔 뭐가있고 2층엔 ~",
+      "고마워!",
     ],
   },
   3: {
-    name: "멍셋",
-    script: ["헉!!!! 냥돌!!!!!", "웬 일로 걷냐고??", "엇...", "ㅋ"],
+    name: "공대생",
+    script: [
+      "끄어어...",
+      "왜그래??",
+      "여기는 프라임관.. 대부분 SW계열과가 여기에 있어.. 코딩하느라 힘들다",
+      "그렇구나! 힘내!",
+    ],
   },
 };
 
 let talkIndex = 0;
-let npcIndex = 0;
+// const nextTalk = (npc) => {
+//   console.dir(nextTalk);
+//   console.dir(npc);
+//   talkNpc.textContent = dialog[npc].name;
+//   talkScript.textContent = dialog[npc].script[talkIndex];
+//   talkIndex++;
+//   if (talkIndex === 5) {
+//     talkIndex = 0;
+//     closeTalk();
+//   }
+// };
+const openTalk = (index) => {
+  talk[index].classList.remove("hidden");
+  console.dir(index);
 
-const nextTalk = () => {
-  talkNpc.textContent = dialog[npcIndex].name;
-  talkScript.textContent = dialog[npcIndex].script[talkIndex];
-  talkIndex++;
-  if (talkIndex === 6) {
-    talkIndex = 0;
-    npcIndex++;
-    closeTalk();
-  }
+  nextBtn[index].addEventListener("click", (index) => {
+    // talkNpc[index].textContent = dialog[index].name;
+    // talkScript[index].textContent = dialog[index].script[talkIndex];
+    // talkIndex++;
+    // if (talkIndex === 5) {
+    //   talkIndex = 0;
+    //   closeTalk();
+    // }
+    console.dir(index);
+  });
 };
-const openTalk = () => {
-  talk.classList.remove("hidden");
-};
-const closeTalk = () => {
-  talk.classList.add("hidden");
-};
+// const closeTalk = () => {
+//   talk.classList.add("hidden");
+// };
 
-overlay.addEventListener("click", closeTalk);
-npc1.addEventListener("click", openTalk);
-npc2.addEventListener("click", openTalk);
-npc3.addEventListener("click", openTalk);
-nextBtn.addEventListener("click", nextTalk);
+// overlay[npcIndex].addEventListener("click", closeTalk);
+// npc[npcIndex].addEventListener("click", openTalk);
+npcList.forEach((npc, index) => {
+  npc.addEventListener("click", () => {
+    // console.log("hi" + index);
+    // console.dir(npc);
+    openTalk(index);
+  });
+});
